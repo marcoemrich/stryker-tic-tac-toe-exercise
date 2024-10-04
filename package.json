@@ -4,10 +4,10 @@
   "main": "index.js",
   "scripts": {
     "test": "vitest",
-    "cov": "vitest --coverage",
+    "cov": "vitest --coverage --run",
     "cov-open": "open ./coverage/index.html",
     "stryker": "stryker run",
-    "stryker-open": "open ./reports/mutation/html/index.html"
+    "stryker-open": "open ./reports/mutation/mutation.html"
   },
   "keywords": [],
   "author": "",

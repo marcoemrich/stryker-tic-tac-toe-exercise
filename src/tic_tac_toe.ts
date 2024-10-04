@@ -1,5 +1,6 @@
 import * as R from "ramda";
 import { Line } from "./line";
+import { Coordinate } from "./Coordinate";
 
 // const mapIndexed = R.addIndex(R.map);
 
@@ -31,7 +32,7 @@ export class TicTacToe {
   }
 
   winner() {
-    this.fields; //?
+    console.log(this.rows().map((r) => new Line(r).winner()));
     return (
       R.union(
         this.rows().map((r) => new Line(r).winner()),
@@ -44,8 +45,13 @@ export class TicTacToe {
     return this._currentPlayer === "X" ? "O" : "X";
   }
 
-  mark(cellNr: number) {
-    if (R.nth(cellNr, this.fields) !== " ") return this;
+  mark(x: number, y: number) {
+    const cellNr = Coordinate.toSequential(new Coordinate(x, y), this.width);
+
+    if (cellNr >= this.numberOfFields) throw new Error("Field out of bounds");
+
+    if (R.nth(cellNr, this.fields) !== " ")
+      throw new Error("Field already marked");
 
     let ttt = new TicTacToe(
       R.update(cellNr, this.currentPlayer, this.fields),
