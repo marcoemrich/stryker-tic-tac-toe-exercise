@@ -1,0 +1,26 @@
+{
+  "name": "ttt_exercise",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "vitest",
+    "cov": "vitest --coverage",
+    "cov-open": "open ./coverage/index.html",
+    "stryker": "stryker run",
+    "stryker-open": "open ./reports/mutation/html/index.html"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@stryker-mutator/vitest-runner": "^8.6.0",
+    "@types/ramda": "^0.30.2",
+    "@vitest/coverage-v8": "^2.1.2",
+    "typescript": "^5.6.2",
+    "vitest": "^2.1.2"
+  },
+  "dependencies": {
+    "ramda": "^0.30.1"
+  }
+}
